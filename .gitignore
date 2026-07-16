@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+dist/
+study-anything-workspace/
+.DS_Store

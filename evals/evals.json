@@ -1,0 +1,78 @@
+{
+  "skill_name": "study-anything",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Study Anything: Setup AI。我完全不知道AI有哪些方向，也不知道该学到什么程度。",
+      "expected_output": "先调研领域并给出能力化深度选项，再结合用户情况确认范围；不立即批量生成模块。",
+      "files": [],
+      "expectations": [
+        "Research occurs before abstract goal confirmation.",
+        "Two or three concrete depth options are explained.",
+        "No roadmap is created.",
+        "The full workbench is not scaffolded before meaningful scope confirmation."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Study Anything: Master D:/learning/pytorch",
+      "expected_output": "按使用文档、进度表、当前模块、审查、学习Review和证据顺序接手，只汇报真实状态和下一步。",
+      "files": [],
+      "expectations": [
+        "The usage guide is read before project state is interpreted.",
+        "The progress table and current module README are checked.",
+        "Audit reports and learning reviews are distinguished.",
+        "No new module is created during takeover."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Study Anything: Continue",
+      "expected_output": "当下一个模块尚不存在时，主Agent创建模块、调用独立子Agent审查、修订并在通过后标记可学习。",
+      "files": [],
+      "expectations": [
+        "A newly authored module starts in 待审查 state.",
+        "An independent subagent review is requested.",
+        "The audit report is stored inside the module 审查 directory.",
+        "Blocker or Major findings require revision and fresh re-audit.",
+        "The module is not marked 可学习 without a passing independent audit."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Study Anything: Record 我完成了M01的实践，证据在modules/01/evidence/result.json。",
+      "expected_output": "在根目录reviews创建学习Review，更新进度表并保持模块README一致；证据缺失时不标记完成。",
+      "files": [],
+      "expectations": [
+        "A learning review is stored in root reviews.",
+        "Teaching audit reports are not stored in root reviews.",
+        "The progress table links evidence and the learning review.",
+        "Missing evidence prevents completion."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Study Anything: Assess M01",
+      "expected_output": "先确认教学审查通过，再按验收标准检查测试、证据和理解；通过后同步标记已学习。",
+      "files": [],
+      "expectations": [
+        "A passing teaching audit is checked before learning assessment.",
+        "Acceptance is based on saved criteria and evidence.",
+        "A root assessment review is created.",
+        "Module README and global progress state are synchronized.",
+        "Course completion or note count alone cannot pass assessment."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Study Anything: Status",
+      "expected_output": "只读汇报当前目标、模块状态、最近证据、阻塞和下一步，不修改文件。",
+      "files": [],
+      "expectations": [
+        "The operation is read-only.",
+        "No review or progress update is created.",
+        "The report includes one next action."
+      ]
+    }
+  ]
+}
