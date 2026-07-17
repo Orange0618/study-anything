@@ -10,7 +10,7 @@ description: >-
   Research before confirming scope, keep the progress table authoritative, and
   require independent subagent review before a new teaching module becomes
   learnable.
-compatibility: Works with file-capable agent tools on Windows, macOS, and Linux. Native subagents are preferred for independent module review. Python 3.9+ is optional for bundled automation; agents without Python can follow the Markdown protocols manually.
+license: MIT
 ---
 
 # Study Anything

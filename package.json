@@ -1,0 +1,49 @@
+{
+  "name": "study-anything",
+  "version": "0.1.0",
+  "description": "Install the Study Anything Agent Skill and build traceable, practice-driven learning workbenches.",
+  "type": "module",
+  "bin": {
+    "study-anything": "bin/study-anything.js"
+  },
+  "files": [
+    "assets/",
+    "bin/",
+    "lib/",
+    "references/",
+    "scripts/*.py",
+    "LICENSE",
+    "README.md",
+    "SKILL.md"
+  ],
+  "scripts": {
+    "test": "node --test --test-reporter=spec",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm test && npm run pack:check"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "agent-skills",
+    "ai-agent",
+    "learning",
+    "study",
+    "codex",
+    "claude-code",
+    "cursor"
+  ],
+  "author": "Orange0618",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Orange0618/study-anything.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Orange0618/study-anything/issues"
+  },
+  "homepage": "https://github.com/Orange0618/study-anything#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}

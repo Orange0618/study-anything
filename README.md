@@ -3,6 +3,7 @@
 > 把任意领域，变成一套 AI 真正能够长期带你学下去的学习系统。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![CI](https://github.com/Orange0618/study-anything/actions/workflows/ci.yml/badge.svg)](https://github.com/Orange0618/study-anything/actions/workflows/ci.yml)
 ![Agent Skill](https://img.shields.io/badge/Agent-Skill-5B5BD6)
 ![Markdown First](https://img.shields.io/badge/Markdown-First-1F6FEB)
 ![Python Optional](https://img.shields.io/badge/Python-Optional-3776AB)
@@ -159,6 +160,59 @@ Study Anything: Assess [可选的模块 ID]
 Study Anything：Continue
 ```
 
+## 一行命令安装
+
+需要 [Node.js 18+](https://nodejs.org/)。在终端运行：
+
+```bash
+npx --yes github:Orange0618/study-anything
+```
+
+这条命令直接从 GitHub 默认分支获取最新版，不依赖全局安装。npm Registry 版本发布后，也可以使用更短的 `npx --yes study-anything@latest`。
+
+安装器会校验 Skill 结构，并默认安装到跨客户端通用目录：
+
+```text
+~/.agents/skills/study-anything
+```
+
+完成后重启或刷新 Agent，再输入：
+
+```text
+Study Anything: Setup <你想学习的内容>
+```
+
+### 指定 Agent 或安装范围
+
+| 需求 | 命令 | 安装位置 |
+| --- | --- | --- |
+| 通用用户级安装（推荐） | `npx --yes github:Orange0618/study-anything` | `~/.agents/skills/study-anything` |
+| Codex 用户级目录 | `npx --yes github:Orange0618/study-anything --target codex` | `~/.codex/skills/study-anything` |
+| Claude Code 用户级目录 | `npx --yes github:Orange0618/study-anything --target claude` | `~/.claude/skills/study-anything` |
+| Cursor 用户级目录 | `npx --yes github:Orange0618/study-anything --target cursor` | `~/.cursor/skills/study-anything` |
+| Gemini 用户级目录 | `npx --yes github:Orange0618/study-anything --target gemini` | `~/.gemini/skills/study-anything` |
+| 当前项目通用目录 | `npx --yes github:Orange0618/study-anything --project` | `./.agents/skills/study-anything` |
+| 当前项目的原生目录 | `npx --yes github:Orange0618/study-anything --target claude --project` | `./.claude/skills/study-anything` |
+| 自定义 skills 根目录 | `npx --yes github:Orange0618/study-anything --dir ./my-skills` | `./my-skills/study-anything` |
+
+查看完整参数：
+
+```bash
+npx --yes github:Orange0618/study-anything --help
+```
+
+### 安全更新，不静默覆盖
+
+再次执行同一条命令即可更新由安装器管理、且未被本地修改的版本。
+
+- 如果目标目录是手工安装的，安装器默认拒绝覆盖；
+- 如果已安装文件被本地修改，安装器默认拒绝覆盖；
+- 必须显式添加 `--force` 才会替换；
+- 强制替换前，原目录会被保留为带时间戳的备份；
+- 安装过程先写入临时目录、完成结构校验后再切换，避免留下半成品。
+
+安装器只复制 Skill 运行所需的 `SKILL.md`、`assets/`、`references/` 和 `scripts/`，不会把 npm CLI、测试或仓库开发文件混入 Agent 的 Skill 目录。
+
 ## 30 秒开始使用
 
 安装 Skill 后，在支持 Agent Skills 的工具中输入：
@@ -255,7 +309,7 @@ reviews/
 
 这就是 Study Anything 想解决的问题：让 AI 教学不仅“看起来合理”，还能够被检查、修正和证明。
 
-## 安装
+## 手动安装
 
 将整个 `study-anything` 目录放入支持 Agent Skills 的工具所使用的 skills 目录，并确保入口文件为：
 
@@ -264,6 +318,8 @@ study-anything/SKILL.md
 ```
 
 不同 Agent 工具的 skills 路径和显式调用方式可能不同，请以对应工具文档为准。
+
+优先推荐上面的 `npx` 安装方式；手动复制适合没有 Node.js、需要离线部署或由团队统一管理 Skill 文件的环境。
 
 ### 运行要求
 
