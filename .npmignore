@@ -1,0 +1,5 @@
+**/__pycache__/**
+**/*.py[cod]
+evals/
+test/
+study-anything-workspace/
